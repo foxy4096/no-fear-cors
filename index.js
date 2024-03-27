@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 app.get("/:uri", async (req, res) => {
-  const uri = req.params.uri;
+  const { uri } = req.params;
 
   // Check if the URI includes the protocol, if not, prepend 'http://'
   const fullUrl = uri.includes("://") ? uri : "http://" + uri;
@@ -25,3 +25,5 @@ app.get("/:uri", async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+module.exports = app;
